@@ -20,5 +20,5 @@ I also added 3 port mapping to communicate with Memcached from an external appli
 	                                
 You can use this reflector to install the cartridge :
 
-	http://cartreflect-claytondev.rhcloud.com/reflect?github=dimsum12/openshift-origin-cartridge-memcached
+	http://cartreflect-claytondev.rhcloud.com/reflect?github=gabriel-andrade/openshift-cartridge-memcached
 
