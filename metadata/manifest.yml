@@ -7,7 +7,8 @@ Description: "Memcached is an in-memory key-value store for small chunks of arbi
 Version: '1.4.15'
 Versions: ['1.4.15']
 Cartridge-Version: 0.2.0
-Cartridge-Vendor: brianredbeard
+Cartridge-Vendor: gabrielandrade
+Source-Url: https://github.com/gabriel-andrade/openshift-cartridge-memcached.git
 License: ASL 2.0
 Vendor: Memcached
 Categories:
