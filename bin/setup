@@ -2,14 +2,14 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-mkdir -p $OPENSHIFT_MEMCACHED_DIR/{logs,pid}
+mkdir -p $OPENSHIFT_HAZELCAST_DIR/{logs,pid}
 
-version=1.4.15
+version=3.2.6
 
 case "$1" in
 	-v|--version)
 	version="$2"
 esac
 echo "setup set_env_var" >> /tmp/tmp.log
-set_env_var OPENSHIFT_MEMCACHED_VERSION "$version" env
-set_env_var OPENSHIFT_MEMCACHED_PATH_ELEMENT "$OPENSHIFT_MEMCACHED_DIR/versions/$version/bin" env
+set_env_var OPENSHIFT_HAZELCAST_VERSION "$version" env
+set_env_var OPENSHIFT_HAZELCAST_PATH_ELEMENT "$OPENSHIFT_HAZELCAST_DIR/versions/$version/bin" env
