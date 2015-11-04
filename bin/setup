@@ -20,7 +20,7 @@ echo "$version" > $OPENSHIFT_HAZELCAST_DIR/env/OPENSHIFT_HAZELCAST_VERSION
 
 #shopt -s dotglob
 #for dir in logs; do
-#  mkdir -p $OPENSHIFT_VERTX_DIR/$dir
+#  mkdir -p $OPENSHIFT_HAZELCAST_DIR/$dir
 #done
 
 #Descargar e instalar Oracle Jdk 8
@@ -34,4 +34,4 @@ rm $java_tar
 
 #Establecer valor de Java Home para usar Oracle Jdk 8
 java_home=$OPENSHIFT_DATA_DIR/$java_folder
-#echo "$java_home" > $OPENSHIFT_VERTX_DIR/env/JAVA_HOME
+#echo "$java_home" > $OPENSHIFT_HAZELCAST_DIR/env/JAVA_HOME
