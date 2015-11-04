@@ -13,3 +13,25 @@ esac
 echo "setup set_env_var" >> /tmp/tmp.log
 set_env_var OPENSHIFT_HAZELCAST_VERSION "$version" env
 set_env_var OPENSHIFT_HAZELCAST_PATH_ELEMENT "$OPENSHIFT_HAZELCAST_DIR/versions/$version/bin" env
+
+echo "$version" > $OPENSHIFT_HAZELCAST_DIR/env/OPENSHIFT_HAZELCAST_VERSION
+
+#mkdir -p ${OPENSHIFT_HOMEDIR}/.m2
+
+#shopt -s dotglob
+#for dir in logs; do
+#  mkdir -p $OPENSHIFT_VERTX_DIR/$dir
+#done
+
+#Descargar e instalar Oracle Jdk 8
+java_tar=jdk-8u60-linux-x64.tar.gz
+java_folder=jdk1.8.0_60/
+
+cd $OPENSHIFT_DATA_DIR
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz
+tar xzf $java_tar
+rm $java_tar
+
+#Establecer valor de Java Home para usar Oracle Jdk 8
+java_home=$OPENSHIFT_DATA_DIR/$java_folder
+#echo "$java_home" > $OPENSHIFT_VERTX_DIR/env/JAVA_HOME
