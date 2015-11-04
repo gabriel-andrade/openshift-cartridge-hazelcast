@@ -1,9 +1,7 @@
 ---
 snapshot_exclusions:
-- memcached/*
+- hazelcast/*
 locked_files:
-- bin
-- bin/*
 - env
 - env/*
 - metadata
