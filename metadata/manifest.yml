@@ -1,62 +1,40 @@
-Name: memcached
-Namespace: MEMCACHED
-Cartridge-Short-Name: MEMCACHED
+Name: hazelcast
+Namespace: HAZELCAST
+Cartridge-Short-Name: HAZELCAST
 Architecture: noarch
-Display-Name: Memcached Distributed Memory Object Caching System
-Description: "Memcached is an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering."
-Version: '1.4.15'
-Versions: ['1.4.15']
-Cartridge-Version: 0.2.0
+Display-Name: Distributed data grid / cache
+Description: Open source in memory data grid based on Java
+Version: '3.2.6'
+Versions: ['3.2.6']
+Cartridge-Version: 0.1.0
 Cartridge-Vendor: gabrielandrade
-Source-Url: https://github.com/gabriel-andrade/openshift-cartridge-memcached.git
+Source-Url: https://github.com/gabriel-andrade/openshift-cartridge-hazelcast.git
 License: ASL 2.0
-Vendor: Memcached
+Vendor: Hazelcast
 Categories:
   - service
-  - database
-  - embedded
-Website: http://www.memcached.org
-Help-Topics:
-  - "Building with Memcached" : https://www.openshift.com/developers/memcached
+Website: http://www.hazelcast.org
 Cart-Data:
   - Key: port
     Type: cart_data
-    Description: "Memcached port"
+    Description: "Hazelcast port"
   - Key: connection_url
     Type: cart_data
-    Description: "Memcached connection URL"
+    Description: "Hazelcast connection URL"
 Suggests:
 Provides:
-  - memcached
-  - memcached-1.4
-  - "memcached(version) = 1.4"
-  - memcached-basic-mode
+  - hazelcast
+  - hazelcast 3.2
+  - "hazelcast(version) = 3.2.6"
 Publishes:
   publish-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
 Scaling:
   Min: 1
-  Max: 1
+  Max: -1
 Endpoints:
-  - Private-IP-Name:   HOST
+  - Private-IP-Name:   IP
     Private-Port-Name: PORT
-    Private-Port:      11211
+    Private-Port:      5701
     Public-Port-Name:  PROXY_PORT
-    Mappings:
-      - Frontend:     "/port1"
-        Backend:      ""
-  - Private-IP-Name:   HOST
-    Private-Port-Name: PORT2
-    Private-Port:      15212
-    Public-Port-Name:  PROXY_PORT2
-    Mappings:
-      - Frontend:     "/port2"
-        Backend:      ""
-  - Private-IP-Name:   HOST
-    Private-Port-Name: PORT3
-    Private-Port:      15214
-    Public-Port-Name:  PROXY_PORT3
-    Mappings:
-      - Frontend:     "/port3"
-        Backend:      ""
 Install-Build-Required: false
