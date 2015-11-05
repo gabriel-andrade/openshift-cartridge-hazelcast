@@ -2,7 +2,7 @@ Name: hazelcast
 Namespace: HAZELCAST
 Cartridge-Short-Name: HAZELCAST
 Architecture: noarch
-Display-Name: Distributed data grid / cache
+Display-Name: Hazelcast
 Description: Open source in memory data grid based on Java
 Version: '3.2.6'
 Versions: ['3.2.6']
