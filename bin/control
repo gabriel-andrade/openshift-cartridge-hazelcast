@@ -94,6 +94,7 @@ function setup_hazelcast {
               -e "s/\${env.OPENSHIFT_HAZELCAST_IP}/${OPENSHIFT_HAZELCAST_IP}/g" \
               -e "s/\${env.OPENSHIFT_HAZELCAST_CLUSTER}/${OPENSHIFT_HAZELCAST_CLUSTER}/g" \
               ./conf/cluster.xml  
+      cp ./conf/cluster.xml ./hazelcast.xml
   popd > /dev/null
 }
 
@@ -136,8 +137,8 @@ function start() {
   if [ "$OPENSHIFT_HAZELCAST_PROXY_PORT" ]; then
     setup_hazelcast
 
-    #HAZELCAST_OPTS="$HAZELCAST_OPTS -Dhazelcast.cluster.public.host=${OPENSHIFT_HAZELCAST_PROXY_IP} -Dhazelcast.cluster.public.port=${OPENSHIFT_HAZELCAST_CLUSTER_PROXY_PORT}"
-    hazelcast_cluster="-Dhazelcast.config=$HAZELCAST_HOME/conf/cluster.xml"
+    HAZELCAST_OPTS="$HAZELCAST_OPTS -Dhazelcast.cluster.public.host=${OPENSHIFT_HAZELCAST_PROXY_IP} -Dhazelcast.cluster.public.port=${OPENSHIFT_HAZELCAST_PROXY_PORT}"
+    hazelcast_cluster="-Dhazelcast.config=$OPENSHIFT_HAZELCAST_DIR/hazelcast.xml"
   fi
 
   # Start up hazelcast
@@ -146,8 +147,8 @@ function start() {
     export CLASSPATH=$OPENSHIFT_HAZELCAST_DIR/conf
     export HAZELCAST_JUL_CONFIG=$OPENSHIFT_HAZELCAST_DIR/conf/logging.properties
     hazelcast_server="com.hazelcast.examples.StartServer"
-    echo "java -cp $HAZELCAST_HOME/lib/hazelcast-$version.jar $hazelcast_server $hazelcast_cluster >> $logf 2>&1 &"
-    java -cp $HAZELCAST_HOME/lib/hazelcast-$version.jar $hazelcast_server $hazelcast_cluster >> $logf 2>&1 &
+    echo "java -cp "$HAZELCAST_HOME/lib/hazelcast-$version.jar:${OPENSHIFT_HAZELCAST_DIR/conf}" $HAZELCAST_OPTS $hazelcast_cluster $hazelcast_server >> $logf 2>&1 &"
+    java -cp "$HAZELCAST_HOME/lib/hazelcast-$version.jar:${OPENSHIFT_HAZELCAST_DIR/conf}" $HAZELCAST_OPTS $hazelcast_cluser $hazelcast_server >> $logf 2>&1 &
      
     PROCESS_ID=$!
     echo "$PROCESS_ID" > ${HAZELCAST_PID_FILE}
