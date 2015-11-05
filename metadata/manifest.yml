@@ -12,7 +12,7 @@ Source-Url: https://github.com/gabriel-andrade/openshift-cartridge-hazelcast.git
 License: ASL 2.0
 Vendor: Hazelcast
 Categories:
-  - service
+  - plugin
 Website: http://www.hazelcast.org
 Cart-Data:
   - Key: port
