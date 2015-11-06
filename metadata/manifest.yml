@@ -30,10 +30,10 @@ Publishes:
   publish-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
   publish-hazelcast-cluster:
-    Type: "ENV:NET_TCP:hazelcast-cluster-info"
+    Type: "NET_TCP:hazelcast-cluster-info"
 Suscribes:
   set-hazelcast-cluster:
-    Type: "ENV:NET_TCP:hazelcast-cluster-info"
+    Type: "NET_TCP:hazelcast-cluster-info"
 Scaling:
   Min: 1
   Max: -1
