@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+# Hazelcast presents itself as Memcached replacement
+echo "OPENSHIFT_HAZELCAST_HOST=$OPENSHIFT_GEAR_DNS"
+echo "OPENSHIFT_HAZELCAST_PORT=$OPENSHIFT_HAZELCAST_PROXY_PORT"

@@ -29,6 +29,8 @@ Provides:
 Publishes:
   publish-db-connection-info:
     Type: "ENV:NET_TCP:db:connection-info"
+  publish-cluster-connection-info:
+    Type: "ENV:NET_TCP:cluster:connection-info"
   publish-hazelcast-cluster:
     Type: "ENV:NET_TCP:hazelcast-cluster-info"
 Suscribes:
