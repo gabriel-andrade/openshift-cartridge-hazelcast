@@ -25,9 +25,9 @@ done
 
 [ $# -eq 3 ] || print_help
 
-if [ -z "${OPENSHIFT_GEAR_DNS}" ]; then
-  echo ""
-else
+#if [ -z "${OPENSHIFT_GEAR_DNS}" ]; then
+#  echo ""
+#else
   OPENSHIFT_HAZELCAST_PROXY_IP=$(ping -c 1 ${OPENSHIFT_GEAR_DNS} | awk '{ print $3 ; exit }' | sed 's/(//g' | sed 's/)//g')
   echo ${OPENSHIFT_HAZELCAST_PROXY_IP}:${OPENSHIFT_HAZELCAST_PROXY_PORT}
-fi
+#fi
