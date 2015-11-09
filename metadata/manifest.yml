@@ -32,13 +32,13 @@ Publishes:
   publish-cluster-connection-info:
     Type: "ENV:NET_TCP:cluster:connection-info"
   publish-hazelcast-cluster:
-    Type: "ENV:NET_TCP:hazelcast-cluster-info"
+    Type: "NET_TCP:hazelcast-cluster-info"
 Suscribes:
   set-env:
     Type: ENV:*
     Required: false
   set-hazelcast-cluster:
-    Type: "ENV:NET_TCP:hazelcast-cluster-info"
+    Type: "NET_TCP:hazelcast-cluster-info"
 Scaling:
   Min: 1
   Max: -1
